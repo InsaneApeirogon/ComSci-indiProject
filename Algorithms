@@ -1,4 +1,18 @@
 This file will be for my current algorithms
 
 Initially
+Create Booleans:
+Create Ints: playerTurn, playerNum
+Create Strings:
+Create Buttons: endTurn
+Create Player class:
+Class contains:
+Ints:
+Strings:
+Booleans:
 
+
+When endTurn button pressed
+  - Set playerTurn = playerTurn + 1
+  - If playerTurn > playerNum, set playerTurn = 1
+  
