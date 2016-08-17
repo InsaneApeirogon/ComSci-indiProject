@@ -2,17 +2,28 @@ This file will be for my current algorithms
 
 Initially
 Create Booleans:
-Create Ints: playerTurn, playerNum
+Create Ints: currentTurn, numberPlayer
 Create Strings:
 Create Buttons: endTurn
+
 Create Player class:
+Class contains:
+Ints: unitCount, playerTurn
+Strings: unitType
+Booleans: unitAlive
+Methods: forestHide
+
+Create Unit Class:
 Class contains:
 Ints:
 Strings:
 Booleans:
+Methods: unitSelect, unitClick, unitMove, unitFire, tankMove, tankFire, infantryMove, infantryFire, artilleryMove, artilleryFire
 
+//  Jframe and Jpanel stuff, work out
+//  Mouselistener stuff, work out
 
 When endTurn button pressed
-  - Set playerTurn = playerTurn + 1
-  - If playerTurn > playerNum, set playerTurn = 1
+  - Set currentTurn = currentTurn + 1
+  - If currentTurn > numberPlayer, set currentTurn = 1
   
