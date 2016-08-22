@@ -38,7 +38,9 @@ drawUnits:
   -   -   -   - if infantry, paint infantry at arrayLoc
   -   -   -   - if artillery, paint artillery at arrayLoc
 
+//Units methods list
 
+//Player methods list
 
 When endTurn button pressed
   - Set currentTurn = currentTurn + 1
