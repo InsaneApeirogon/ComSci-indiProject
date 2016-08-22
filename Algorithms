@@ -26,8 +26,18 @@ Methods: unitSelect, unitClick, unitMove, unitFire, tankMove, tankFire, infantry
 Methods:
 drawTerrain:
   - loop i for arraylength
+  -   - loop e for arraywidth
+  -   -   - at i,e if String == forest, paint forest
+  -   -   - at i,e if String == plains, paint plains
   
 drawUnits:
+  - loop i for unitarray
+  -   - if unit i = alive
+  -   -   - if case
+  -   -   -   - if tank, paint tank at arrayLoc
+  -   -   -   - if infantry, paint infantry at arrayLoc
+  -   -   -   - if artillery, paint artillery at arrayLoc
+
 
 
 When endTurn button pressed
