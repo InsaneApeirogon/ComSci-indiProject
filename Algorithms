@@ -15,7 +15,7 @@ Methods:
 
 Create Unit Class:
 Class contains:
-Ints: unitType
+Ints: unitType arrayLocX, arrayLocY
 Strings:
 Booleans: unitAlive, unitForest
 Methods: unitSelect, unitClick, unitMove, unitFire, tankMove, tankFire, infantryMove, infantryFire, artilleryMove, artilleryFire
