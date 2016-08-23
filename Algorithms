@@ -2,7 +2,7 @@ This file will be for my current algorithms
 
 Initially
 Create Booleans: selectingUnit, firingUnit
-Create Ints: currentTurn, numberPlayer, artilleryRange, tankRange, infantryRange, artilleryMove, tankMove, infantryMove
+Create Ints: currentTurn, numberPlayer, artilleryRange, tankRange, infantryRange, artilleryMove, tankMove, infantryMove, lastUnit
 Create Strings: Terrain [] []
 Create Buttons: endTurn
 
@@ -46,7 +46,7 @@ unitSelect:
   -loop i for unitArrayLength
   -   -check unit for matching arrayLoc
   -if unit found
-  -   -if selected unit = false
+  -   -if selectedUnit = false
   -   -   -if case
   -   -   -   -if infantry 
   -   -   -   -   -paint fireSquare sprites  centered on arrayLoc
@@ -56,8 +56,21 @@ unitSelect:
   -   -   -   -if artillery
   -   -   -   -   -paint fireSquares artilleryRange*artilleryRange centered on arrayLoc
   -   -   -   -   -paint moveSquare sprites artilleryMove*artilleryMove
-  
-
+  -   -   -set selectUnit = true
+  -   -   -lastUnit = i
+  -   -if selectedUnit = true
+  -   -   -if firingUnit = true
+  -   -   -   -get unitType unitArray [lastUnit]
+  -   -   -   -if case
+  -   -   -   -   -if artillery, run artilleryFire
+  -   -   -   -   -if tank, run tankFire
+  -   -   -   -   -if infantry, run infantryFire
+  -   -   -if firingUnit = false
+  -   -   -   -get unitType unitArray [lastUnit}
+  -   -   -   -if case
+  -   -   -   -   -if artillery, run artilleryMove
+  -   -   -   -   -if tank, run tankMove
+  -   -   -   -   -if infantry, run infantryMove
 //Player methods list
 
 When endTurn button pressed
