@@ -8,16 +8,16 @@ Create Buttons: endTurn
 
 Create Player class:
 Class contains:
-Ints: unitCount, playerTurn
-Strings: unitType
-Booleans: unitAlive
-Methods: forestHide
+Ints: playerUnitCount, playerTurn
+Strings:
+Booleans:
+Methods: 
 
 Create Unit Class:
 Class contains:
-Ints:
+Ints: unitType
 Strings:
-Booleans:
+Booleans: unitAlive, unitForest
 Methods: unitSelect, unitClick, unitMove, unitFire, tankMove, tankFire, infantryMove, infantryFire, artilleryMove, artilleryFire
 
 //  Jframe and Jpanel stuff, work out
@@ -32,7 +32,7 @@ drawTerrain:
   
 drawUnits:
   - loop i for unitarray
-  -   - if unit i = alive
+  -   - if unit i = alive and unitForest = False
   -   -   - if case
   -   -   -   - if tank, paint tank at arrayLoc
   -   -   -   - if infantry, paint infantry at arrayLoc
