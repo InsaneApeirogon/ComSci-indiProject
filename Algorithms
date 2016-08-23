@@ -1,8 +1,8 @@
 This file will be for my current algorithms
 
 Initially
-Create Booleans:
-Create Ints: currentTurn, numberPlayer
+Create Booleans: selectingUnit, firingUnit
+Create Ints: currentTurn, numberPlayer, artilleryRange, tankRange, infantryRange, artilleryMove, tankMove, infantryMove
 Create Strings: Terrain [] []
 Create Buttons: endTurn
 
@@ -18,7 +18,7 @@ Class contains:
 Ints: unitType arrayLocX, arrayLocY
 Strings:
 Booleans: unitAlive, unitForest
-Methods: unitSelect, unitClick, unitMove, unitFire, tankMove, tankFire, infantryMove, infantryFire, artilleryMove, artilleryFire
+Methods: unitSelect, unitMove, unitFire, tankMove, tankFire, infantryMove, infantryFire, artilleryMove, artilleryFire
 
 //  Jframe and Jpanel stuff, work out
 //  Mouselistener stuff, work out
@@ -39,6 +39,24 @@ drawUnits:
   -   -   -   - if artillery, paint artillery at arrayLoc
 
 //Units methods list
+
+unitSelect:
+  -get mousecoords
+  -Find corresponding arrayLoc
+  -loop i for unitArrayLength
+  -   -check unit for matching arrayLoc
+  -if unit found
+  -   -if selected unit = false
+  -   -   -if case
+  -   -   -   -if infantry 
+  -   -   -   -   -paint fireSquare sprites  centered on arrayLoc
+  -   -   -   -if tank
+  -   -   -   -   -paint moveSquare sprites tankMove*tankMove centered on arrayLoc
+  -   -   -   -   -paint fireSquare sprites tankRange*tankRange centered on arrayLoc
+  -   -   -   -if artillery
+  -   -   -   -   -paint fireSquares artilleryRange*artilleryRange centered on arrayLoc
+  -   -   -   -   -paint moveSquare sprites 
+  
 
 //Player methods list
 
