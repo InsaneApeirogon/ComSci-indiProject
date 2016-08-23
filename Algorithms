@@ -55,7 +55,7 @@ unitSelect:
   -   -   -   -   -paint fireSquare sprites tankRange*tankRange centered on arrayLoc
   -   -   -   -if artillery
   -   -   -   -   -paint fireSquares artilleryRange*artilleryRange centered on arrayLoc
-  -   -   -   -   -paint moveSquare sprites 
+  -   -   -   -   -paint moveSquare sprites artilleryMove*artilleryMove
   
 
 //Player methods list
