@@ -46,7 +46,8 @@ unitSelect:
   -loop i for unitArrayLength
   -   -check unit for matching arrayLoc
   -if unit found
-  -   -if selectedUnit = false
+  -   -if firingUnit = false
+  -   -   if selectedUnit = false
   -   -   -if case
   -   -   -   -if infantry 
   -   -   -   -   -paint fireSquare sprites  centered on arrayLoc
@@ -59,18 +60,17 @@ unitSelect:
   -   -   -set selectUnit = true
   -   -   -lastUnit = i
   -   -if selectedUnit = true
-  -   -   -if firingUnit = true
-  -   -   -   -get unitType unitArray [lastUnit]
-  -   -   -   -if case
-  -   -   -   -   -if artillery, run artilleryFire
-  -   -   -   -   -if tank, run tankFire
-  -   -   -   -   -if infantry, run infantryFire
-  -   -   -if firingUnit = false
   -   -   -   -get unitType unitArray [lastUnit}
   -   -   -   -if case
   -   -   -   -   -if artillery, run artilleryMove
   -   -   -   -   -if tank, run tankMove
   -   -   -   -   -if infantry, run infantryMove
+  -   -if firingUnit = true
+  -   -   -get unitType unitArray [lastUnit]
+  -   -   -if case
+  -   -   -   -if artillery, run artilleryFire
+  -   -   -   -if tank, run tankFire
+  -   -   -   -if infantry, run infantryFire
 //Player methods list
 
 When endTurn button pressed
