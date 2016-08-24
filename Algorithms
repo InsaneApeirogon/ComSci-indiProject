@@ -86,7 +86,17 @@ unitSelect:
   -   -   -   -if artillery, run artilleryFire
   -   -   -   -if tank, run tankFire
   -   -   -   -if infantry, run infantryFire
-  -
+  
+infantryMove:
+  -get mouseCoords
+  -get corresponding arrayLoc
+  -loop i for unitArrayLength
+  -   -check units for corresponding arrayLoc
+  -if unit found, return error
+  -else
+  -   -if arrayLoc (lastUnit) [i+-1] [e] or [i] [e-+1] = arrayLoc (mouse) [i] [e]
+  -   -   -run unitMove
+  -   -else, return error
   
   
 //Player methods list
