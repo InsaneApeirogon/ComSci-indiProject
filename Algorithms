@@ -15,7 +15,7 @@ Methods:
 
 Create Unit Class:
 Class contains:
-Ints: unitFaction arrayLocX, arrayLocY
+Ints: unitFaction arrayLocX, arrayLocY, unitActions
 Strings: unitType
 Booleans: unitAlive, unitForest
 Methods: unitSelect, unitMove, unitFire, tankMove, tankFire, infantryMove, infantryFire, artilleryMove, artilleryFire
@@ -53,11 +53,11 @@ paintSprites:
 unitSelect:
   -get mousecoords
   -Find corresponding arrayLoc
-  -loop i for unitArrayLength
-  -   -check unit for matching arrayLoc
-  -if unit found
-  -   -if firingUnit = false
-  -   -   -if selectedUnit = false
+  -if firingUnit = false
+  -   -if selectedUnit = false
+  -   -   -  -loop i for unitArrayLength
+  -   -   -   -check unit for matching arrayLoc
+  -   -   -if unit found
   -   -   -   -if case
   -   -   -   -   -if infantry 
   -   -   -   -   -   -paint fireSquare sprites  centered on arrayLoc
@@ -69,18 +69,24 @@ unitSelect:
   -   -   -   -   -   -paint moveSquare sprites artilleryMove*artilleryMove
   -   -   -   -set selectUnit = true
   -   -   -   -lastUnit = i
-  -   -   -if selectedUnit = true
-  -   -   -   -get unitType unitArray [lastUnit}
-  -   -   -   -if case
-  -   -   -   -   -if artillery, run artilleryMove
-  -   -   -   -   -if tank, run tankMove
-  -   -   -   -   -if infantry, run infantryMove
+  -   -   -if unit not found, return error
+  -   -if selectedUnit = true
+  -   -   -get unitType unitArray [lastUnit]
+  -   -   -loop i for unitArrayLength
+  -   -   -   -check unit for matching arrayLoc
+  -   -   -if unit found, return error
+  -   -   -   -else
+  -   -   -   -   -if case
+  -   -   -   -   -   -if artillery, run artilleryMove
+  -   -   -   -   -   -if tank, run tankMove
+  -   -   -   -   -   -if infantry, run infantryMove
   -   -if firingUnit = true
   -   -   -get unitType unitArray [lastUnit]
   -   -   -if case
   -   -   -   -if artillery, run artilleryFire
   -   -   -   -if tank, run tankFire
   -   -   -   -if infantry, run infantryFire
+  -
   
   
 //Player methods list
