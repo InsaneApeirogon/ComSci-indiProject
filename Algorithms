@@ -15,8 +15,8 @@ Methods:
 
 Create Unit Class:
 Class contains:
-Ints: unitType arrayLocX, arrayLocY
-Strings:
+Ints: unitFaction arrayLocX, arrayLocY
+Strings: unitType
 Booleans: unitAlive, unitForest
 Methods: unitSelect, unitMove, unitFire, tankMove, tankFire, infantryMove, infantryFire, artilleryMove, artilleryFire
 
@@ -34,9 +34,19 @@ drawUnits:
   - loop i for unitarray
   -   - if unit i = alive and unitForest = False
   -   -   - if case
-  -   -   -   - if tank, paint tank at arrayLoc
-  -   -   -   - if infantry, paint infantry at arrayLoc
-  -   -   -   - if artillery, paint artillery at arrayLoc
+  -   -   -   - if tank, check unitFaction, paint tank (faction) at arrayLoc
+  -   -   -   - if infantry, check unitFaction, paint infantry (faction) at arrayLoc
+  -   -   -   - if artillery, check unitFaction, paint artillery (faction) at arrayLoc
+
+paintSprites:
+  -get required arrayLoc and sprite type
+  -if spritetype = moveSquare
+  -   -if arrayLoc = forest
+  -   -   -if unitType (lastUnit) = infantry
+  -   -   -   -paint moveSquare
+  -   -   -else, do nothing
+  -   -if arrayLoc = plains
+  -   -   -paint moveSquare
 
 //Units methods list
 
