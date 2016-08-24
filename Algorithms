@@ -47,19 +47,19 @@ unitSelect:
   -   -check unit for matching arrayLoc
   -if unit found
   -   -if firingUnit = false
-  -   -   if selectedUnit = false
-  -   -   -if case
-  -   -   -   -if infantry 
-  -   -   -   -   -paint fireSquare sprites  centered on arrayLoc
-  -   -   -   -if tank
-  -   -   -   -   -paint moveSquare sprites tankMove*tankMove centered on arrayLoc
-  -   -   -   -   -paint fireSquare sprites tankRange*tankRange centered on arrayLoc
-  -   -   -   -if artillery
-  -   -   -   -   -paint fireSquares artilleryRange*artilleryRange centered on arrayLoc
-  -   -   -   -   -paint moveSquare sprites artilleryMove*artilleryMove
-  -   -   -set selectUnit = true
-  -   -   -lastUnit = i
-  -   -if selectedUnit = true
+  -   -   -if selectedUnit = false
+  -   -   -   -if case
+  -   -   -   -   -if infantry 
+  -   -   -   -   -   -paint fireSquare sprites  centered on arrayLoc
+  -   -   -   -   -if tank
+  -   -   -   -   -   -paint moveSquare sprites tankMove*tankMove centered on arrayLoc
+  -   -   -   -   -   -paint fireSquare sprites tankRange*tankRange centered on arrayLoc
+  -   -   -   -   -if artillery
+  -   -   -   -   -   -paint fireSquares artilleryRange*artilleryRange centered on arrayLoc
+  -   -   -   -   -   -paint moveSquare sprites artilleryMove*artilleryMove
+  -   -   -   -set selectUnit = true
+  -   -   -   -lastUnit = i
+  -   -   -if selectedUnit = true
   -   -   -   -get unitType unitArray [lastUnit}
   -   -   -   -if case
   -   -   -   -   -if artillery, run artilleryMove
@@ -71,6 +71,8 @@ unitSelect:
   -   -   -   -if artillery, run artilleryFire
   -   -   -   -if tank, run tankFire
   -   -   -   -if infantry, run infantryFire
+  
+  
 //Player methods list
 
 When endTurn button pressed
