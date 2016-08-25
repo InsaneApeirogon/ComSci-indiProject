@@ -98,7 +98,18 @@ infantryMove:
   -   -   -run unitMove
   -   -else, return error
   
-  
+unitMove:
+ - 
+  -if arrayLoc (lastUnit) [i+-1] [e] or [i] [e-+1] = arrayLoc (mouse) [i] [e]
+  -  -arrayLoc (lastUnit) = arrayLoc (mouse)
+  -else, if arrayLoc (lastUnit) [i+-2] [e] = arrayLoc (mouse)
+  -   - arrayLoc (lastUnit) = arrayLoc (lastUnit i+-1)
+  -   - wait 40 miliseconds
+  -   - arrayLoc (lastUnit) = arrayLoc (mouse)
+  -else, if arrayLoc (lastUnit) [i+-1] [e+-1] = arrayLoc (mouse)
+  -   - if arrayLoc (lastUnit) [] []
+
+
 //Player methods list
 
 When endTurn button pressed
