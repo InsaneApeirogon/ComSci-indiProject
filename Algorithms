@@ -103,12 +103,23 @@ unitMove:
   -if arrayLoc (lastUnit) [i+-1] [e] or [i] [e-+1] = arrayLoc (mouse) [i] [e]
   -  -arrayLoc (lastUnit) = arrayLoc (mouse)
   -else, if arrayLoc (lastUnit) [i+-2] [e] = arrayLoc (mouse)
+  -   -check forest, unit
   -   - arrayLoc (lastUnit) = arrayLoc (lastUnit i+-1)
   -   - wait 40 miliseconds
   -   - arrayLoc (lastUnit) = arrayLoc (mouse)
   -else, if arrayLoc (lastUnit) [i+-1] [e+-1] = arrayLoc (mouse)
-  -   - if arrayLoc (lastUnit) [] []
+  -   - check forest, units
+  -   - move arrayLoc [i+-] or [e+-1]
+  -   - wait 40 miliseconds
+  -   - ArrayLoc (lastUnit) = arrayLoc (mouse)
+  
+tankMove:
+-get mouseCoords
+-get corresponding arrayLoc
+-if arrayLoc (lastUnit) = arrayLoc (mouse) [i+-2] [e], [i] [e+-2], [i+-1] [e], [i] [e+-1], [i+-1] [e+-1]
+-   -run unitMove
 
+Arti
 
 //Player methods list
 
