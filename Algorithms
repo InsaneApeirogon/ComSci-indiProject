@@ -3,7 +3,7 @@ This file will be for my current algorithms
 Initially
 Create Booleans: selectingUnit, firingUnit
 Create Ints: currentTurn, numberPlayer, artilleryRange, tankRange, infantryRange, artilleryMove, tankMove, infantryMove, lastUnit
-Create Strings: Terrain [] []
+Create Strings: Terrain [mapsize] [mapsize]
 Create Buttons: endTurn
 
 Create Player class:
@@ -192,7 +192,12 @@ set currentTurn = 1
 set infantryMove, infantryFire, tankFire, artilleryMove = 1
 set artilleryFire = 4
 set tankMove = 2
-w
+set PlayerUnitCount (all) = number of units on their side
+
+
+When mouse clicked
+  -if inside playing field
+  -   -Run unitSelect
 
 When fire button pressed
   -set firingUnit = true
