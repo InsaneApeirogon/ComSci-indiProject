@@ -168,6 +168,12 @@ tankFire:
   -   -else return error
   
 artilleryFire:
+  - if lastUnit arrayLoc = mouse [i+-4] or [e+-4]
+  -   -loop i for unitArrayLength
+  -   -   -check units for corresponding arrayLoc
+  -   -if unit found, set unitAlive at mouse arrayLoc to false
+  -   -else return error
+  - if lastUnit arrayLoc = mouse [i+-3] [e+-2]
 
 
 //Player methods list
