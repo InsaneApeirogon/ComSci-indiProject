@@ -4,13 +4,14 @@ Initially
 Create Booleans: selectingUnit, firingUnit
 Create Ints: currentTurn, numberPlayer, artilleryRange, tankRange, infantryRange, artilleryMove, tankMove, infantryMove, lastUnit
 Create Strings: Terrain [mapsize] [mapsize]
-Create Buttons: endTurn
+Create Buttons: endTurn, Fire
+Create other Array: unitArray [], playerArray []
 
 Create Player class:
 Class contains:
 Ints: playerUnitCount, playerTurn
 Strings:
-Booleans:
+Booleans: playerLoss
 Methods: 
 
 Create Unit Class:
@@ -193,6 +194,7 @@ set infantryMove, infantryFire, tankFire, artilleryMove = 1
 set artilleryFire = 4
 set tankMove = 2
 set PlayerUnitCount (all) = number of units on their side
+set playerLoss (all) = false
 
 
 When mouse clicked
@@ -204,5 +206,15 @@ When fire button pressed
 
 When endTurn button pressed
   - Set currentTurn = currentTurn + 1
+
   - If currentTurn > numberPlayer, set currentTurn = 1
+  - loop i for playerArray
+  -   -if currentTurn = playerArray [i] and playerArray [i] playerLoss = true
+  -   -   -set currentTurn = currentTurn + 1
+  
+When PlayerunitCount (player) = 0
+  -Set playerLoss (player) = true
+  -Set //local variable, e =0// e = e +1
+  -if e = numberPlayer - 1
+  -   -loop i for playerArray, if playerArray [i] playerLoss = false, display Victory for player [i] 
   
