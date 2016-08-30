@@ -58,6 +58,7 @@ unitSelect:
   -   -   -  -loop i for unitArrayLength
   -   -   -   -check unit for matching arrayLoc
   -   -   -if unit found
+  -   -   -   -if unitFaction =\= currentTurn, return error, break
   -   -   -   -if case
   -   -   -   -   -if infantry 
   -   -   -   -   -   -paint fireSquare sprites  centered on arrayLoc
@@ -146,11 +147,13 @@ unitFire:
   -   -set lastUnit (unitTurn) = unitTurn - 2
   -   -get mouseCoords
   -   -find correspondinbg arrayLoc
-  -   -get lastUnit (unitType)
-  -   -if case:
-  -   -   -if tank, run tankFire
-  -   -   -if infantry, run infantyFire
-  -   -   -if artillery, run artilleryFire
+  -   -if lastUnit arrayLoc = mouse arrayLoc, return error
+  -   -else
+  -   -   -get lastUnit (unitType)
+  -   -   -if case:
+  -   -   -   -if tank, run tankFire
+  -   -   -   -if infantry, run infantyFire
+  -   -   -   -if artillery, run artilleryFire
   -else, return error
   
 infantryFire:
@@ -173,10 +176,26 @@ artilleryFire:
   -   -   -check units for corresponding arrayLoc
   -   -if unit found, set unitAlive at mouse arrayLoc to false
   -   -else return error
-  - if lastUnit arrayLoc = mouse [i+-3] [e+-2]
+  - loop a for 0-3 inclusive
+  -   -loop b for 0-3 inclusive
+  -   -   -if lastUnit arrayLoc = mouse [i+-a] [e+-b]
+  -   -   -   -loop i for unitArrayLength
+  -   -   -   -   -check units for corresponding arrayLoc
+  -   -   -   -if unit found, set unitAlive at mouse arrayLoc to false
+  -   -   -   -else return error
 
 
 //Player methods list
+
+//Main
+set currentTurn = 1
+set infantryMove, infantryFire, tankFire, artilleryMove = 1
+set artilleryFire = 4
+set tankMove = 2
+w
+
+When fire button pressed
+  -set firingUnit = true
 
 When endTurn button pressed
   - Set currentTurn = currentTurn + 1
