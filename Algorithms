@@ -143,7 +143,32 @@ artilleryMove:
 
 unitFire:
   - if lastUnit unitTurn => 2
-  -
+  -   -set lastUnit (unitTurn) = unitTurn - 2
+  -   -get mouseCoords
+  -   -find correspondinbg arrayLoc
+  -   -get lastUnit (unitType)
+  -   -if case:
+  -   -   -if tank, run tankFire
+  -   -   -if infantry, run infantyFire
+  -   -   -if artillery, run artilleryFire
+  -else, return error
+  
+infantryFire:
+  -if lastunit arrayLoc = mouse arrayLoc [i+-1] or [e+-1]
+  -   -loop i for unitArrayLength
+  -   -   -check units for corresponding arrayLoc
+  -   -if unit found, set unitAlive at mouse arrayLoc to false
+  -   -else return error
+  
+tankFire:
+  -if lastunit arrayLoc = mouse arrayLoc [i+-1] or [e+-1]
+  -   -loop i for unitArrayLength
+  -   -   -check units for corresponding arrayLoc
+  -   -if unit found, set unitAlive at mouse arrayLoc to false
+  -   -else return error
+  
+artilleryFire:
+
 
 //Player methods list
 
