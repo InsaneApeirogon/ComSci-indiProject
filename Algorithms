@@ -101,17 +101,27 @@ infantryMove:
 unitMove:
  - 
   -if arrayLoc (lastUnit) [i+-1] [e] or [i] [e-+1] = arrayLoc (mouse) [i] [e]
-  -  -arrayLoc (lastUnit) = arrayLoc (mouse)
-  -else, if arrayLoc (lastUnit) [i+-2] [e] = arrayLoc (mouse)
-  -   -check forest, unit
-  -   - arrayLoc (lastUnit) = arrayLoc (lastUnit i+-1)
-  -   - wait 40 miliseconds
-  -   - arrayLoc (lastUnit) = arrayLoc (mouse)
+  -   -if lastUnit (unitTurn) => 1
+  -   -   -check forest, unit
+  -   -   -arrayLoc (lastUnit) = arrayLoc (mouse)
+  -   -   -set lastUnit (unitTurn) = unitTurn - 1
+  -   -else, retrun error
+  -else, if arrayLoc (lastUnit) [i+-2] or [e+-2] = arrayLoc (mouse)
+  -   -if lastUnit (unitTurn) = > 2
+  -   -   -check forest, unit
+  -   -   -arrayLoc (lastUnit) = arrayLoc (lastUnit i+-1 or e+-1)
+  -   -   -wait 40 miliseconds
+  -   -   -arrayLoc (lastUnit) = arrayLoc (mouse)
+  -   -   -set lastUnit (unitTurn) = unitTurn - 2
+  -   -else, return error
   -else, if arrayLoc (lastUnit) [i+-1] [e+-1] = arrayLoc (mouse)
-  -   - check forest, units
-  -   - move arrayLoc [i+-] or [e+-1]
-  -   - wait 40 miliseconds
-  -   - ArrayLoc (lastUnit) = arrayLoc (mouse)
+  -   - if lastUnit (unitTurn) => 2
+  -   -   - check forest, units
+  -   -   - move arrayLoc [i+-] or [e+-1]
+  -   -   - wait 40 miliseconds
+  -   -   - ArrayLoc (lastUnit) = arrayLoc (mouse)
+  -   -   -set lastUnit (unitTurn) = unitTurn - 2
+  -   -else, return error
   
 tankMove:
   -get mouseCoords
@@ -131,8 +141,8 @@ artilleryMove:
   -   -   -run unitMove
   -   -else, return error
 
-InfantryFire  
 unitFire:
+  - if lastUnit unitTurn => 2
   -
 
 //Player methods list
